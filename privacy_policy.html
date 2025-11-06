@@ -1,72 +1,283 @@
-Privacy Policy for BridgeDrop
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy • BridgeDrop</title>
 
-Last Updated: [Current Date]
+  <!-- SEO / Social -->
+  <meta name="description" content="BridgeDrop Privacy Policy — zero data collection, end-to-end encrypted local file sharing." />
+  <meta property="og:title" content="BridgeDrop • Privacy Policy" />
+  <meta property="og:description" content="Zero data collection. E2E encrypted local transfers. No accounts, no tracking." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://your-domain/og-image.png" />
 
-1. OVERVIEW
-BridgeDrop is a privacy-first, local network file sharing application. We are committed to protecting your privacy and ensuring your data stays under your control.
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
 
-2. DATA COLLECTION
-BridgeDrop operates on a "zero data collection" model:
-- NO user accounts required
-- NO cloud storage or servers
-- NO analytics or tracking
-- NO personal information collected
-- NO data sent to third parties
+  <style>
+    :root{
+      --bg: #0b0d12;
+      --panel:#11141a;
+      --card:#141922;
+      --muted:#98a2b3;
+      --text:#e6e9ee;
+      --accent:#4f7cff;
+      --accent-2:#43d3a7;
+      --border: #202633;
+      --radius:14px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --max: 1100px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f8fb; --panel:#ffffff; --card:#ffffff; --text:#12161f;
+        --muted:#5b6472; --border:#e6e8ef; --shadow: 0 10px 30px rgba(10, 22, 50, .08);
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji", sans-serif;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(79,124,255,.15), transparent 60%),
+                  radial-gradient(900px 600px at 120% 0%, rgba(67,211,167,.15), transparent 50%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.65;
+    }
 
-3. DATA STORAGE (LOCAL ONLY)
-BridgeDrop stores the following data LOCALLY on your device:
-- App preferences (theme, download location)
-- Trusted device public keys (for secure pairing)
-- Transfer history (stored locally, can be cleared)
+    /* Header */
+    .hero{
+      position:relative; padding:72px 20px 42px; text-align:center;
+    }
+    .brand{
+      display:inline-flex; gap:10px; align-items:center; margin-bottom:18px;
+      font-weight:800; letter-spacing:.3px; font-size:22px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .title{
+      font-weight:800; font-size: clamp(28px, 4vw, 40px); margin: 0 0 10px;
+    }
+    .subtitle{ color:var(--muted); margin: 0; font-size: clamp(14px, 1.8vw, 16px); }
 
-This data:
-- Never leaves your device
-- Is not accessible to us or any third party
-- Can be deleted by clearing app data
+    /* Shell */
+    .wrap{max-width: var(--max); margin: 30px auto; padding: 0 20px;}
+    .layout{display:grid; grid-template-columns: 280px 1fr; gap: 24px;}
+    @media (max-width: 980px){ .layout{grid-template-columns: 1fr;} }
 
-4. PERMISSIONS EXPLAINED
-- CAMERA: Only used for QR code scanning to pair devices. No photos are stored or transmitted.
-- STORAGE: Only used to read files you choose to send and save received files. We cannot access other files.
-- INTERNET/NETWORK: Only used for local network communication between your devices. No internet communication.
-- LOCATION: NOT used. Network permissions may trigger location permission on some devices, but location is never accessed.
+    /* Sidebar / TOC */
+    .card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow);}
+    .toc{ position:sticky; top:24px; padding:18px;}
+    .toc h3{margin:4px 8px 8px; font-size:14px; text-transform:uppercase; letter-spacing:.12em; color:var(--muted)}
+    .toc a{
+      display:block; padding:10px 12px; margin: 2px 4px; border-radius:10px; text-decoration:none; color:var(--text);
+      border:1px solid transparent; font-size: 15px;
+    }
+    .toc a:hover{ background:var(--panel); border-color:var(--border); }
+    .toc a.active{ border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
 
-5. DATA TRANSMISSION
-All file transfers:
-- Occur only over your LOCAL network (WiFi)
-- Are end-to-end encrypted (X25519 + AES-GCM)
-- Never pass through our servers or the internet
-- Are peer-to-peer between your devices
+    /* Content */
+    .content{ padding: 22px 26px; }
+    .content section{ padding: 20px 0; border-bottom: 1px dashed var(--border); }
+    .content section:last-child{ border-bottom: none; }
+    .content h2{
+      font-size: clamp(20px, 2.6vw, 26px); margin: 0 0 10px; scroll-margin-top: 90px;
+    }
+    .muted{ color:var(--muted) }
+    .kbd{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; background:var(--panel); padding: 2px 8px; border-radius:8px; border:1px solid var(--border); }
 
-6. SECURITY
-- End-to-end encryption for all transfers
-- Device verification through fingerprint matching
-- No passwords or accounts to compromise
-- All cryptographic keys generated and stored locally
+    ul{ padding-left: 18px; margin: 8px 0 0 }
+    a{ color: var(--accent); }
+    .pill{
+      display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border-radius:999px;
+      border:1px solid var(--border); background:var(--panel); color:var(--muted); font-size:13px;
+    }
 
-7. THIRD-PARTY SERVICES
-BridgeDrop does NOT use:
-- Analytics services
-- Advertising networks
-- Cloud storage services
-- Any third-party data collection
+    /* Footer */
+    footer{ text-align:center; color:var(--muted); padding: 26px 0 50px; }
 
-8. CHILDREN'S PRIVACY
-BridgeDrop does not knowingly collect any information from children. The app is suitable for all ages as it collects no personal data.
+    /* Print */
+    @media print{
+      .hero, .toc, .theme-toggle{ display:none; }
+      body{ background:#fff; color:#000; }
+      .card{ box-shadow:none; border-color:#000; }
+      .content{ padding:0 }
+      a{ color:#000; text-decoration:underline }
+    }
 
-9. DATA RETENTION
-- Settings: Stored until app is uninstalled or data is cleared
-- Transfer history: Stored locally, can be cleared in app settings
-- Trusted devices: Stored until manually removed or app data cleared
+    /* Theme toggle */
+    .theme-toggle{
+      position: fixed; right: 16px; bottom: 16px; z-index: 2;
+      border: 1px solid var(--border); background: var(--panel); color: var(--text);
+      border-radius: 12px; padding: 10px 12px; cursor: pointer; box-shadow: var(--shadow);
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" id="themeBtn" aria-label="Toggle theme">🌓 Theme</button>
 
-10. YOUR RIGHTS
-You can:
-- Clear all app data at any time (Android Settings > Apps > BridgeDrop > Storage > Clear Data)
-- Revoke permissions at any time (Android Settings > Apps > BridgeDrop > Permissions)
-- Uninstall the app to remove all data
+  <header class="hero">
+    <div class="brand">BridgeDrop</div>
+    <h1 class="title">Privacy Policy</h1>
+    <p class="subtitle">
+      Zero data collection. End-to-end encrypted local sharing. Last updated:
+      <span id="lastUpdated" class="kbd">—</span>
+    </p>
+    <p class="pill" style="margin-top:14px;">Package ID: <code class="kbd">com.bridgedrop.app</code></p>
+  </header>
 
-11. CHANGES TO THIS POLICY
-We may update this policy. Changes will be posted in the app and on this page.
+  <main class="wrap">
+    <div class="layout">
+      <!-- Sidebar / Table of contents -->
+      <nav class="card toc" id="toc">
+        <h3>On this page</h3>
+        <a href="#overview">Overview</a>
+        <a href="#collection">Data Collection</a>
+        <a href="#local">Local Storage</a>
+        <a href="#permissions">Permissions</a>
+        <a href="#transmission">Data Transmission</a>
+        <a href="#security">Security</a>
+        <a href="#thirdparty">Third-Party Services</a>
+        <a href="#children">Children’s Privacy</a>
+        <a href="#retention">Data Retention</a>
+        <a href="#rights">Your Rights</a>
+        <a href="#changes">Changes</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-12. CONTACT US
-Email: bridgedrop.app@gmail.com
-Website: https://bridgedrop.kazimahmed.com
+      <!-- Main content -->
+      <article class="card content">
+        <section id="overview">
+          <h2>1. Overview</h2>
+          <p>BridgeDrop is a privacy-first, local network file-sharing application. We are committed to protecting your privacy and ensuring your data stays under your control.</p>
+        </section>
+
+        <section id="collection">
+          <h2>2. Data Collection</h2>
+          <p>BridgeDrop operates on a <strong>zero data collection</strong> model:</p>
+          <ul>
+            <li>No user accounts required</li>
+            <li>No cloud storage or servers</li>
+            <li>No analytics or tracking</li>
+            <li>No personal information collected</li>
+            <li>No data sent to third parties</li>
+          </ul>
+        </section>
+
+        <section id="local">
+          <h2>3. Data Storage (Local Only)</h2>
+          <p>BridgeDrop stores the following data <strong>locally</strong> on your device:</p>
+          <ul>
+            <li>App preferences (theme, download location)</li>
+            <li>Trusted device public keys (for secure pairing)</li>
+            <li>Transfer history (can be cleared)</li>
+          </ul>
+          <p class="muted">This data never leaves your device and is not accessible to us or any third party.</p>
+        </section>
+
+        <section id="permissions">
+          <h2>4. Permissions Explained</h2>
+          <ul>
+            <li><strong>Storage</strong> — To read files you choose to send and to save received files.</li>
+            <li><strong>Internet / Network</strong> — For local device-to-device communication on your Wi-Fi network.</li>
+            <li><strong>Location (Fine/Coarse)</strong> — Required by Android for Wi-Fi discovery on Android 10+; <em>not</em> used for GPS or tracking.</li>
+          </ul>
+        </section>
+
+        <section id="transmission">
+          <h2>5. Data Transmission</h2>
+          <ul>
+            <li>Transfers occur only over your <strong>local network (Wi-Fi)</strong>.</li>
+            <li>All transfers are <strong>end-to-end encrypted</strong> (X25519 + AES-GCM).</li>
+            <li>No data passes through our servers or the public internet.</li>
+            <li>Peer-to-peer between your devices.</li>
+          </ul>
+        </section>
+
+        <section id="security">
+          <h2>6. Security</h2>
+          <ul>
+            <li>E2E encryption for all transfers</li>
+            <li>Device verification via fingerprint matching</li>
+            <li>No passwords or accounts to compromise</li>
+            <li>Keys generated and stored locally</li>
+          </ul>
+        </section>
+
+        <section id="thirdparty">
+          <h2>7. Third-Party Services</h2>
+          <p>BridgeDrop does <strong>not</strong> use analytics, advertising networks, cloud storage, or any third-party data collection services.</p>
+        </section>
+
+        <section id="children">
+          <h2>8. Children’s Privacy</h2>
+          <p>We do not knowingly collect any information from children. The app is suitable for all ages as it collects no personal data.</p>
+        </section>
+
+        <section id="retention">
+          <h2>9. Data Retention</h2>
+          <ul>
+            <li><strong>Settings</strong> — Stored until the app is uninstalled or data is cleared.</li>
+            <li><strong>Transfer history</strong> — Stored locally; can be cleared in settings.</li>
+            <li><strong>Trusted devices</strong> — Stored until removed or app data is cleared.</li>
+          </ul>
+        </section>
+
+        <section id="rights">
+          <h2>10. Your Rights</h2>
+          <p>You can clear app data, revoke permissions, or uninstall the app at any time.</p>
+          <ul>
+            <li>Android: <span class="kbd">Settings → Apps → BridgeDrop → Storage → Clear data</span></li>
+            <li>Permissions: <span class="kbd">Settings → Apps → BridgeDrop → Permissions</span></li>
+          </ul>
+        </section>
+
+        <section id="changes">
+          <h2>11. Changes to This Policy</h2>
+          <p>We may update this policy. Changes will be posted in the app and on this page.</p>
+        </section>
+
+        <section id="contact">
+          <h2>12. Contact Us</h2>
+          <p>Email: <a href="mailto:bridgedrop.app@gmail.com">bridgedrop.app@gmail.com</a><br>
+             Website: <a href="https://bridgedrop.kazimahmed.com" target="_blank" rel="noopener">bridgedrop.kazimahmed.com</a></p>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="year"></span> BridgeDrop. All rights reserved.
+  </footer>
+
+  <script>
+    // Last updated / year
+    const d = new Date();
+    document.getElementById('lastUpdated').textContent =
+      d.toLocaleDateString(undefined, {year:'numeric', month:'long', day:'numeric'});
+    document.getElementById('year').textContent = d.getFullYear();
+
+    // Active heading highlight
+    const tocLinks = [...document.querySelectorAll('#toc a')];
+    const sections = tocLinks.map(a => document.querySelector(a.getAttribute('href')));
+    const activate = (id) => tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) activate(e.target.id); });
+    }, { rootMargin: '-30% 0px -60% 0px', threshold: 0.1 });
+    sections.forEach(s => s && io.observe(s));
+
+    // Theme toggle (persist)
+    const btn = document.getElementById('themeBtn');
+    const key = 'bd-theme';
+    const apply = (mode) => {
+      if(mode === 'light'){ document.documentElement.style.colorScheme='light'; document.body.classList.add('light'); }
+      else { document.documentElement.style.colorScheme='dark'; document.body.classList.remove('light'); }
+      localStorage.setItem(key, mode);
+    };
+    const saved = localStorage.getItem(key);
+    if(saved) apply(saved);
+    btn.addEventListener('click', () => apply((localStorage.getItem(key) === 'light') ? 'dark' : 'light'));
+  </script>
+</body>
+</html>
